@@ -1,0 +1,17 @@
+  import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+  const checkoutArray = useSelector((state) => state.checkout.checkoutItems);
+  checkoutArray.map((data) => {
+    console.log(data.text.id);
+  });
+
+  const groupedById = checkoutArray.reduce((acc, currentItem) => {
+    const existingGroup = acc.find(
+      (group) => group[0]?.id === currentItem.text.id
+    );
+    if (existingGroup) {
+      existingGroup.push(currentItem.text);
+    } else {
+      acc.push([currentItem.text]);
+    }
+    return acc;
+  }, []);

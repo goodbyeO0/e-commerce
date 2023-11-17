@@ -2,8 +2,6 @@
 import Image from "next/image";
 import Navbar from "@/app/components/navbar";
 import Cart from "@/app/components/cart";
-import { useDispatch } from "react-redux";
-import { addToCheckout } from "@/app/redux/checkout/checkoutSlice";
 
 export default async function Product({ params }) {
   const response = await fetch(

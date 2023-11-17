@@ -13,7 +13,7 @@ export default function Cart({ id }) {
     dispatch(addCart(cart));
     dispatch(addToCheckout({ id: id }));
   };
-  console.log(id);
+  console.log(cart);
 
   return (
     <>
