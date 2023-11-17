@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 async function page({ params }) {
   console.log(params.id);
@@ -38,6 +39,7 @@ async function page({ params }) {
   return (
     <>
       <h1 className="text-6xl p-3">CHECKOUT</h1>
+
       {imageUrl.map((url, i) => {
         return (
           <div
@@ -57,6 +59,16 @@ async function page({ params }) {
           </div>
         );
       })}
+      <hr className="font-extrabold border border-black" />
+      <div className="flex">
+        <p className="p-3 text-xl">price: RM{arrayId.length * 10.9}</p>
+        <Link
+          href="/payment"
+          className="p-2 border mt-2 ml-32 border-slate-950 bg-orange-400 font-bold rounded-lg hover:bg-orange-300 text-white hover:text-slate-400 h-10 w-24"
+        >
+          payment
+        </Link>
+      </div>
     </>
   );
 }

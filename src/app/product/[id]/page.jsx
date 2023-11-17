@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Navbar from "@/app/components/navbar";
 import Cart from "@/app/components/cart";
+import Link from "next/link";
 
 export default async function Product({ params }) {
   const response = await fetch(
@@ -27,9 +28,12 @@ export default async function Product({ params }) {
           <p className="mt-32">{product.synopsis}</p>
           <div className="absolute bottom-0 p-2">
             <Cart id={product.mal_id} />
-            <button className="border border-orange-500 bg-slate-400 rounded-md p-2">
+            <Link
+              href={`/buy/${params.id}`}
+              className="border border-orange-500 bg-slate-400 rounded-md p-2"
+            >
               buy now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
