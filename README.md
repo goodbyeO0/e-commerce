@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## alert
+1) make .env file
+2) paste ```NEXT_PUBLIC_API_BASE_URL = https://api.jikan.moe/v4```
+
 ## Getting Started
 
 First, run the development server:
@@ -13,6 +17,7 @@ pnpm dev
 # or
 bun dev
 ```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
