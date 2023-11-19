@@ -9,7 +9,7 @@ import Link from "next/link";
 function Payment() {
   const router = useRouter();
 
-  let timeOutId = setTimeout(() => {
+  const timeOutId = setTimeout(() => {
     router.push("/unsuccessful");
   }, 7000);
 

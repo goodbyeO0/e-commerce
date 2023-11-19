@@ -13,6 +13,9 @@ export default function Navbar() {
       <div className="flex justify-between p-3 border border-slate-700">
         <div>LADAZA</div>
         <div>
+          <Link href="/ship" className="mr-5">
+            to ship
+          </Link>
           <Link href={`/checkout/${resultString}`}>
             cart{" "}
             <span className="text-green-700">{checkoutIdArray.length}</span>
