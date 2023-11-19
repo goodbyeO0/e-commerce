@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 
-const Timer = () => {
-  const oneMinute = 60; // in seconds
+const Timer = ({ time }) => {
+  const oneMinute = time; // in seconds
   const [timeRemaining, setTimeRemaining] = useState(oneMinute);
 
   useEffect(() => {

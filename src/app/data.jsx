@@ -34,7 +34,7 @@ export default async function Data() {
 
               <div className="p-2 absolute bottom-0">
                 <p>free shipping</p>
-                <p>RM 10.99</p>
+                <p>RM 10.90</p>
               </div>
             </div>
           );

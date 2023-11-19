@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const checkoutSlice = createSlice({
-    name: "checkout",
+    name: "Addcheckout",
     initialState,
     reducers: {
         addToCheckout: (state, action) => {
@@ -15,11 +15,15 @@ export const checkoutSlice = createSlice({
                 text: action.payload,
             }
             state.checkoutItems.push(checkout);
-        }
-    }
+        },
+        emptyCheckout: (state) => {
+            state.checkoutItems = [];
+        },
+    },
+
 })
 
 
 
-export const { addToCheckout } = checkoutSlice.actions;
+export const { addToCheckout, emptyCheckout } = checkoutSlice.actions;
 export default checkoutSlice.reducer;

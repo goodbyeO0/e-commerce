@@ -1,19 +1,13 @@
 "use client";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addCart } from "../redux/cart/cartSlice";
 import { addToCheckout } from "../redux/checkout/checkoutSlice";
 
 export default function Cart({ id }) {
-  const [cart, setCart] = useState(0);
   const dispatch = useDispatch();
 
   const handleCart = () => {
-    setCart(cart + 1);
-    dispatch(addCart(cart));
     dispatch(addToCheckout({ id: id }));
   };
-  console.log(cart);
 
   return (
     <>
