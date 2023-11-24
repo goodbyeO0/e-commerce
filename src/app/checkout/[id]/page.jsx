@@ -27,13 +27,14 @@ async function page({ params }) {
   const json = await response.json();
 
   const imageUrl = [];
-  json.data.forEach((dataItem) => {
-    groupedArray.forEach((group) => {
+  for (const group of groupedArray) {
+    for (const dataItem of json.data) {
       if (dataItem.mal_id === group[0]) {
         imageUrl.push(dataItem.images.webp.image_url);
+        break;
       }
-    });
-  });
+    }
+  }
   console.log(imageUrl);
 
   return (
