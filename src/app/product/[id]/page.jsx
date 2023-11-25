@@ -24,13 +24,14 @@ export default async function Product({ params }) {
           />
         </div>
         <div className="col-span-2 p-2 relative">
-          <p>{product.title}</p>
+          <p className="text-2xl">{product.title}</p>
+          <p className="mt-8 text-4xl font-semibold text-[#EE4D2D]">RM 10.99</p>
           <p className="mt-32">{product.synopsis}</p>
           <div className="absolute bottom-0 p-2">
             <Cart id={product.mal_id} />
             <Link
               href={`/buy/${params.id}`}
-              className="border border-orange-500 bg-slate-400 rounded-md p-2"
+              className=" bg-[#EE4D2D] rounded-md pr-7 pl-7 pt-3 pb-3 text-white"
             >
               buy now
             </Link>

@@ -7,18 +7,21 @@ export default function Navbar() {
   console.log(checkoutIdArray);
   const resultString = checkoutIdArray.map((item) => item.text.id).join("a");
   console.log(resultString);
-
   return (
     <>
-      <div className="flex justify-between p-3 border border-slate-700">
-        <div>LADAZA</div>
-        <div>
-          <Link href="/ship" className="mr-5">
+      <div className="flex justify-between items-center p-3 bg-[#F54D2F] h-28 text-white">
+        <Link href="/" className="text-4xl">
+          LADAZA
+        </Link>
+        <div className="flex items-center">
+          <Link href="/ship" className="mr-5 text-2xl">
             to ship
           </Link>
-          <Link href={`/checkout/${resultString}`}>
-            cart{" "}
-            <span className="text-green-700">{checkoutIdArray.length}</span>
+          <Link href={`/checkout/${resultString}`} className="text-2xl">
+            cart
+            <span className="text-teal-400 text-2xl">
+              {checkoutIdArray.length}
+            </span>
           </Link>
         </div>
       </div>

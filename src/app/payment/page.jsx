@@ -8,13 +8,21 @@ import Link from "next/link";
 
 function Payment() {
   const router = useRouter();
+  let timeOutId;
 
-  const timeOutId = setTimeout(() => {
-    router.push("/unsuccessful");
-  }, 7000);
+  useEffect(() => {
+    timeOutId = setTimeout(() => {
+      router.push("/unsuccessful");
+    }, 7000);
+
+    return () => {
+      clearTimeout(timeOutId);
+    };
+  }, [router]);
 
   const handleClick = () => {
     clearTimeout(timeOutId);
+    router.push("/successful");
   };
 
   return (
@@ -38,7 +46,7 @@ function Payment() {
           </div>
           <div className="flex justify-center mt-3">
             <Link
-              onClick={handleClick()}
+              onClick={handleClick}
               href="/successful"
               className="font-semibold rounded-lg border p-2 border-slate-950 bg-orange-500 text-slate-300 hover:bg-orange-300 hover:text-white"
             >

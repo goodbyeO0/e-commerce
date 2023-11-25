@@ -10,7 +10,9 @@ async function page({ params }) {
   return (
     <>
       <div className="w-4/6 h-4/6 m-auto">
-        <h1 className="text-6xl font-extrabold p-5 text-center">CHECKOUT</h1>
+        <h1 className="p-3 text-4xl font-semibold text-[#EE4D2D]">
+          LADAZA <span className="font-normal">| Shopping Cart</span>
+        </h1>
         <div className="grid grid-cols-4 items-center">
           <Image
             src={product.images.webp.image_url}
@@ -19,12 +21,17 @@ async function page({ params }) {
             alt="Picture of the product"
             className="m-8 col-span-1"
           />
-          <div className="col-span-3 flex flex-col justify-center items-center">
-            <p>{product.title}</p>
-            <p>price: RM 10.90</p>
+          <div className="col-span-3 flex flex-col justify-center items-center text-2xl">
+            <p className="font-semibold">{product.title}</p>
+            <p className="">
+              Price:{"      "}
+              <span className="text-3xl text-[#EE4D2D] font-bold">
+                RM 10.90
+              </span>
+            </p>
             <Link
               href="/payment"
-              className="p-2 border  border-slate-950 bg-orange-400 font-bold rounded-lg hover:bg-orange-300 text-white hover:text-slate-400 h-10 w-24"
+              className="pl-9 mt-16 pr-9 pb-3 pt-3 border bg-[#EE4D2D] text-white hover:bg-[#ee4d2de6] rounded-md"
             >
               payment
             </Link>

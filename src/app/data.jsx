@@ -10,13 +10,13 @@ export default async function Data() {
   const json = await response.json();
 
   return (
-    <div>
-      <ul className="grid grid-cols-5">
+    <div className="w-5/6 m-auto">
+      <ul className="grid grid-cols-4">
         {json.data.map((data, i) => {
           return (
             <div
               key={i}
-              className="border border-slate-800 m-3 w-[300px] h-[650px] grid grid-rows-3 relative"
+              className="rounded-md  shadow-lg shadow-slate-700 m-3 w-[300px] h-[650px] grid grid-rows-3 relative "
             >
               <div className="p-2">
                 <Link href={`/product/${data.mal_id}`}>

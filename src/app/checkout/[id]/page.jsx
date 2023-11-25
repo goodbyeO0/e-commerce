@@ -39,7 +39,9 @@ async function page({ params }) {
 
   return (
     <>
-      <h1 className="text-6xl p-3">CHECKOUT</h1>
+      <h1 className="p-3 text-4xl font-semibold text-[#EE4D2D]">
+        LADAZA <span className="font-normal">| Shopping Cart</span>
+      </h1>
 
       {imageUrl.map((url, i) => {
         return (
@@ -52,22 +54,26 @@ async function page({ params }) {
               width={300}
               height={300}
               alt="Picture of the product"
-              className="self-center"
+              className="self-center shadow-xl shadow-black rounded-lg"
             />
             <div className="flex flex-col justify-center">
-              <p className="text-center text-4xl">X{lengthsArray[i]}</p>
+              <p className="text-center text-4xl border border-slate-400 w-20 h-20 leading-[80px]">
+                {lengthsArray[i]}
+              </p>
             </div>
           </div>
         );
       })}
       <hr className="font-extrabold border border-black" />
       <div className="flex">
-        <p className="p-3 text-xl">price: RM{arrayId.length * 10.9}</p>
+        <p className="p-3 text-2xl">
+          Total price: RM{(arrayId.length * 10.9).toFixed(2)}
+        </p>
         <Link
           href="/payment"
-          className="p-2 border mt-2 ml-32 border-slate-950 bg-orange-400 font-bold rounded-lg hover:bg-orange-300 text-white hover:text-slate-400 h-10 w-24"
+          className="pl-9 pr-9 pb-3 pt-3 mt-2 ml-32 bg-[#EE4D2D] text-white hover:bg-[#ee4d2de6]"
         >
-          payment
+          Payment
         </Link>
       </div>
     </>
