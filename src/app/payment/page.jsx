@@ -11,6 +11,7 @@ function Payment() {
   let timeOutId;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     timeOutId = setTimeout(() => {
       router.push("/unsuccessful");
     }, 7000);
