@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "./components/navbar";
+import UserContextProvider from "./context/UserContextProvider";
 
 export default async function Data() {
   const response = await fetch(
