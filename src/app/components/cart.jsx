@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
 export default function Cart({ id }) {
@@ -8,16 +8,14 @@ export default function Cart({ id }) {
   const handleCart = () => {
     const updatedCartt = [...cartt, { id }];
     setCartt(updatedCartt);
-
-    return (
-      <>
-        <button
-          onClick={handleCart}
-          className="mr-5 border border-orange-500 bg-slate-400 rounded-md p-2"
-        >
-          add to cart
-        </button>
-      </>
-    );
   };
+
+  return (
+    <button
+      onClick={handleCart}
+      className="mr-5 border border-orange-500 bg-slate-400 rounded-md p-2"
+    >
+      add to cart
+    </button>
+  );
 }
