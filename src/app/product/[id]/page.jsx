@@ -4,6 +4,7 @@ import Navbar from "@/app/components/navbar";
 import Cart from "@/app/components/cart";
 import UserContextProvider from "@/app/context/UserContextProvider";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Product({ params }) {
   const [product, setProduct] = useState(null);
@@ -48,10 +49,14 @@ export default function Product({ params }) {
             <p className="mt-32">{product.synopsis}</p>
             <div className="absolute bottom-0 p-2">
               <Cart id={product.mal_id} />
-              <button className="border border-orange-500 bg-slate-400 rounded-md p-2">
+              <Link
+                href={`/buy/${params.id}`}
+                className="border border-orange-500 bg-slate-400 rounded-md p-2"
+              >
                 buy now
-              </button>
+              </Link>
             </div>
+            <p className="text-3xl font-bold text-orange-500 mt-5">RM 10.99</p>
           </div>
         </div>
       )}
