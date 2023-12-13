@@ -1,17 +1,9 @@
-const inputString = "5114a5114a15417a52991a52991a52991a5114a5114a41467a9253a9253a52991";
+const arrayOfArrays = [[5114, 5114], [38524, 38524], [11061]];
 
-const mergedArray = inputString.split('a').reduce((acc, value) => {
-    const lastSubArray = acc[acc.length - 1];
-    if (lastSubArray && lastSubArray[0] === value) {
-        lastSubArray.push(value);
-    } else {
-        acc.push([value]);
-    }
-    return acc;
-}, []).reduce((acc, arr) => {
-    const existing = acc.find(subArr => subArr[0] === arr[0]);
-    existing ? existing.push(...arr.slice(1)) : acc.push(arr);
-    return acc;
-}, []);
+const totalItemsInEachArray = arrayOfArrays.map(arr => arr.length);
+const totalSubArrays = arrayOfArrays.length;
+const totalAllItems = arrayOfArrays.flat().length;
 
-console.log(mergedArray);
+console.log('Total items in each sub-array:', totalItemsInEachArray);
+console.log('Total number of sub-arrays:', totalSubArrays);
+console.log('Total number of all items in all sub-arrays:', totalAllItems);
