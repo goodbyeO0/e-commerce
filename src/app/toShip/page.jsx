@@ -9,6 +9,18 @@ export default function ToShip() {
   const [isPending, setIsPending] = useState(true);
   const [product, setProduct] = useState(null);
 
+  const groupedArray = Object.values(
+    toShip.reduce((acc, { id }) => {
+      if (!acc[id]) {
+        acc[id] = [id];
+      } else {
+        acc[id].push(id);
+      }
+      return acc;
+    }, {})
+  );
+  console.log(groupedArray);
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -37,8 +49,8 @@ export default function ToShip() {
       {product &&
         product.data.map((data, i) => {
           let jsxContent = null;
-          toShip.forEach((arr, j) => {
-            if (data.mal_id == arr.id) {
+          groupedArray.forEach((arr, j) => {
+            if (data.mal_id == arr[0]) {
               jsxContent = (
                 <div key={i}>
                   <div className="flex items-center w-3/4 m-auto">
@@ -52,7 +64,10 @@ export default function ToShip() {
                     <div className="ml-5">
                       <p className="font-semibold text-3xl p-2">{data.title}</p>
                       <p className=" text-xl p-2">
-                        quantity : <span>{j}</span>
+                        quantity :{" "}
+                        <span className="text-[#EE4D2D] font-semibold">
+                          {arr.length}
+                        </span>
                       </p>
                     </div>
                   </div>

@@ -2,24 +2,6 @@
 import Timer from "../components/timer";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-<<<<<<< HEAD
-import { useDispatch } from "react-redux";
-import { emptyCheckout, addToShip } from "../redux/checkout/checkoutSlice";
-import { useSelector } from "react-redux";
-
-export default function Successful() {
-  const dispatch = useDispatch();
-  const router = useRouter();
-  const checkoutIdArray = useSelector((state) => state.checkout.checkoutItems);
-  const idArray = checkoutIdArray.map((item) => item.text.id);
-
-  useEffect(() => {
-    if (idArray.length > 0) {
-      dispatch(addToShip(idArray));
-      dispatch(emptyCheckout());
-    }
-  }, [dispatch, idArray]);
-=======
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
@@ -30,7 +12,6 @@ export default function Successful() {
     setCartt([{}]);
   }, []);
   const router = useRouter();
->>>>>>> context
 
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
