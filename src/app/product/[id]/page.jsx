@@ -2,7 +2,6 @@
 "use client";
 import Navbar from "@/app/components/navbar";
 import Cart from "@/app/components/cart";
-import UserContextProvider from "@/app/context/UserContextProvider";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 

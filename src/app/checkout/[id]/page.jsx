@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Checkout({ params }) {
   console.log(params.id);
@@ -68,14 +69,22 @@ export default function Checkout({ params }) {
           });
           return jsxContent;
         })}
-      <hr className=" border-black mt-5 mb-5 border-4" />
-      <div>
-        <p>
-          Total Items : <span>{totalAllItems}</span>
-        </p>
-        <p>
-          Total Price : <span>{(totalAllItems * 10.99).toFixed(2)}</span>
-        </p>
+      <hr className="border-black mt-5 mb-5 border-4" />
+      <div className="mb-5 flex justify-between items-center">
+        <div>
+          <p>
+            Total Items : <span>{totalAllItems}</span>
+          </p>
+          <p>
+            Total Price : <span>{(totalAllItems * 10.99).toFixed(2)}</span>
+          </p>
+        </div>
+        <Link
+          href={"/payment"}
+          className="p-3 bg-orange-500 border rounded-lg mr-10 font-bold text-white hover:bg-orange-400 hover:text-slate-500 active:text-orange-200"
+        >
+          PAYMENT
+        </Link>
       </div>
     </>
   );
