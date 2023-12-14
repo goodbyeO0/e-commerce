@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const { carttArr } = useContext(UserContext);
+  const { carttArr, toShipArr, toShip } = useContext(UserContext);
   console.log(carttArr);
   const cartArray = carttArr.map((data) => {
     return data.id;
@@ -17,9 +17,14 @@ export default function Navbar() {
     <>
       <div className="flex justify-between p-3 border border-slate-700">
         <div>LADAZA</div>
-        <Link href={`/checkout/${cartArrayStr}`}>
-          cart <span className="text-green-700">{carttArr.length}</span>
-        </Link>
+        <div className="flex items-center space-x-4">
+          <Link href={`/checkout/${cartArrayStr}`}>
+            cart <span className="text-green-700">{carttArr.length}</span>
+          </Link>
+          <Link href={`/toShip`}>
+            ToShip <span>{toShipArr.length}</span>
+          </Link>
+        </div>
       </div>
     </>
   );

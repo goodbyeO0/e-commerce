@@ -6,8 +6,11 @@ import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
 export default function Successful() {
-  const { cartt, setCartt } = useContext(UserContext);
-  setCartt([{}]);
+  const { setCartt, setToShip, cartt } = useContext(UserContext);
+  useEffect(() => {
+    setToShip(cartt);
+    setCartt([{}]);
+  }, []);
   const router = useRouter();
 
   useEffect(() => {
