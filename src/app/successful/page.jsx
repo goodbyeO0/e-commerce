@@ -2,6 +2,7 @@
 import Timer from "../components/timer";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+<<<<<<< HEAD
 import { useDispatch } from "react-redux";
 import { emptyCheckout, addToShip } from "../redux/checkout/checkoutSlice";
 import { useSelector } from "react-redux";
@@ -18,6 +19,18 @@ export default function Successful() {
       dispatch(emptyCheckout());
     }
   }, [dispatch, idArray]);
+=======
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
+
+export default function Successful() {
+  const { setCartt, setToShip, cartt } = useContext(UserContext);
+  useEffect(() => {
+    setToShip(cartt);
+    setCartt([{}]);
+  }, []);
+  const router = useRouter();
+>>>>>>> context
 
   useEffect(() => {
     const redirectTimer = setTimeout(() => {

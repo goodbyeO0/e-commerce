@@ -1,17 +1,11 @@
-const array = ['378', '122', '453', '378', '378', '378', '122', '555'];
 
-const groupedArray = array.reduce((acc, currentValue) => {
-    const foundGroup = acc.find(group => group.includes(currentValue));
-    if (foundGroup) {
-        foundGroup.push(currentValue);
-    } else {
-        acc.push([currentValue]);
-    }
-    return acc;
-}, []);
+const arrayOfArrays = [[5114, 5114], [38524, 38524], [11061]];
 
-console.log(groupedArray)
+const totalItemsInEachArray = arrayOfArrays.map(arr => arr.length);
+const totalSubArrays = arrayOfArrays.length;
+const totalAllItems = arrayOfArrays.flat().length;
 
-const lengthsArray = groupedArray.map(group => group.length);
+console.log('Total items in each sub-array:', totalItemsInEachArray);
+console.log('Total number of sub-arrays:', totalSubArrays);
+console.log('Total number of all items in all sub-arrays:', totalAllItems);
 
-console.log(lengthsArray);

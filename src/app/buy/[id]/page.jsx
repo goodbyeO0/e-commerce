@@ -1,18 +1,38 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-async function page({ params }) {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime`
-  );
-  const json = await response.json();
-  const product = json.data.find((item) => item.mal_id == params.id);
+export default function Buy({ params }) {
+  const [product, setProduct] = useState(null);
+  const [isPending, setIsPending] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime`
+        );
+        const json = await res.json();
+        const foundProduct = json.data.find((item) => item.mal_id == params.id);
+        setProduct(foundProduct);
+        setIsPending(false);
+      } catch (err) {
+        console.error("Error fetching data : ", err);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className="w-4/6 h-4/6 m-auto">
-        <h1 className="p-3 text-4xl font-semibold text-[#EE4D2D]">
-          LADAZA <span className="font-normal">| Shopping Cart</span>
-        </h1>
+        <div className=" mt-5">
+          <Link
+            href={"/"}
+            className="p-3 text-4xl font-semibold text-[#EE4D2D]"
+          >
+            LADAZA <span className="font-normal">| Shopping Cart</span>
+          </Link>
+        </div>
         <div className="grid grid-cols-4 items-center">
           <Image
             src={product.images.webp.image_url}
@@ -41,5 +61,3 @@ async function page({ params }) {
     </>
   );
 }
-
-export default page;

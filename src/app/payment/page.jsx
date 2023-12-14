@@ -11,7 +11,6 @@ function Payment() {
   let timeOutId;
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     timeOutId = setTimeout(() => {
       router.push("/unsuccessful");
     }, 7000);
@@ -39,7 +38,7 @@ function Payment() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="/qr.jpeg"
+              src="/qrIzz.jpg"
               width={350}
               height={900}
               alt="Picture of the product"
