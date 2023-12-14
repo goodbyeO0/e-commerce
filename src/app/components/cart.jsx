@@ -13,7 +13,7 @@ export default function Cart({ id }) {
   return (
     <button
       onClick={handleCart}
-      className="mr-5 border border-orange-500 bg-slate-400 rounded-md p-2"
+      className="mr-5 rounded-md pr-7 pl-7 pt-2 pb-2 bg-[#FFEEE8] border border-[#EE4D2D] text-[#EE4D2D]"
     >
       add to cart
     </button>

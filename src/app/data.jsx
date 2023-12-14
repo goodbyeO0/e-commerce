@@ -9,15 +9,15 @@ export default async function Data() {
   const json = await response.json();
 
   return (
-    <div>
-      <ul className="grid grid-cols-5">
+    <div className="w-11/12 m-auto ">
+      <ul className="grid grid-cols-4">
         {json.data.map((data, i) => {
           return (
             <div
               key={i}
-              className="border border-slate-800 m-3 w-[300px] h-[650px] grid grid-rows-3 relative"
+              className="border border-slate-800 w-[310px] h-[550px] relative m-auto mt-5 bg-white rounded-lg shadow-md shadow-slate-400"
             >
-              <div className="p-2">
+              <div className="p-2 ">
                 <Link href={`/product/${data.mal_id}`}>
                   <li className="p-2">
                     <Image
@@ -26,14 +26,14 @@ export default async function Data() {
                       height={900}
                       alt="Picture of the product"
                     />
-                    <p className="mt-3">{data.title}</p>
+                    <p className="mt-3 uppercase font-semibold">{data.title}</p>
                   </li>
                 </Link>
               </div>
 
               <div className="p-2 absolute bottom-0">
                 <p>free shipping</p>
-                <p>RM 10.99</p>
+                <p className="text-[#EE4D2D] font-semibold">RM 10.99</p>
               </div>
             </div>
           );
